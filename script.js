@@ -1,11 +1,13 @@
 // Setup Items
-var alphaSet = 'abcdefghijklmnopqrstuv';
+var alphaSet = 'abcdefghijklmnopqrstuvxyz';
 var numericSet = '0123456789';
 var specialSet = '!#$%&()*+,-./:;<=>?@[\]^_{|}~';
+var passLength = null;
 var incLower = true;
 var incUpper = true;
 var incNum = true;
 var incSpecial = false;
+var strSet = '';
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
@@ -18,10 +20,52 @@ function writePassword() {
 
 }
 
+// Setup password parameters
+function configurePassword() {
+  // Ask for the settings
+  passLength = promptForPassLength();
+  incLower = confirm("Would you like to include lowercase letters?");
+  incUpper = confirm("Would you like to include uppercase letters?");
+  incNum = confirm("Would you like to include numbers?");
+  incSpecial = confirm("Would you like to include special characters?");
+  // Setup the strSet to be used by the password generator
+  if (incLower) { strSet += alphaSet; }
+  if (incUpper) { var alphaSetUpper = alphaSet.toUpperCase(); strSet += alphaSetUpper; }
+  if (incNum) { strSet += numericSet; }
+  if (incSpecial) { strSet += specialSet; }
+  // Provide confirmation to the user
+  alert("You chose a password " + passLength + " characters long.\nInclude Lowercase Letters: " + incLower + "\nInclude Uppercase Letters: " + incUpper + "\nInclude Numbers: " + incNum + "\nInclude Special Characters: " + incSpecial + "\nCharacter set will be :" + strSet);
+}
+
+function promptForPassLength() {
+  while(true) {
+    passLength = prompt("How many characters do you want your password to be?");
+    if (passLength || isNaN( passLength) || passLength === 'undefined') {
+      alert("Invalid input.");
+    } else if (passLength) {
+      return parseInt(passLength);
+    } else {
+      return;
+    }
+  }
+}
+
 // Generate the random password
 function generatePassword() {
-  alert("generatePassword was reached");
+  if (strSet === '') {
+    alert("You must configure settings first.");
+  } else {
+    pass = '';
+    for (var i = 0; i < passLength; i++) {
+      var char = Math.floor(Math.random() * strSet.length + 1);
+      pass += strSet.charAt(char);
+    }
+    return pass;
+  }
 }
 
 // Add event listener to generate button
 document.getElementById("generate").addEventListener("click", writePassword);
+document.getElementById("settings").addEventListener("click", configurePassword);
+
+
