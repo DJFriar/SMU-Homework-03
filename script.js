@@ -15,16 +15,20 @@ var generateBtn = document.querySelector("#generate");
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-  passwordText.value = password;
-
+  // If we got back a valid response, then write it to the screen.
+  if (!password) {
+    return;
+  } else {
+    var passwordText = document.querySelector("#password");
+    passwordText.value = password;
+  }
 }
 
 // Setup password parameters
 function configurePassword() {
   // Reset the settings
   strSet = '';
-  // Ask for the settings
+  // Ask user for the settings
   passLength = promptForPassLength();
   incLower = confirm("Would you like to include lowercase letters?");
   incUpper = confirm("Would you like to include uppercase letters?");
@@ -44,6 +48,8 @@ function configurePassword() {
 }
 
 function promptForPassLength() {
+  /* This function validates the password length field to ensure that only a number between 8 and 128 inclusive is accepted. 
+  Cancelling out on this prompt will exit the entire routine. Blank and letter values are rejected. */
   while(true) {
     passLength = prompt("How many characters do you want your password to be?\nYou must choose a number between 8 and 128.");
     if (passLength && isNaN(passLength)) {
@@ -64,8 +70,10 @@ function promptForPassLength() {
 
 // Generate the random password
 function generatePassword() {
+  // First we confirm that settings were configured, then we create the random password.
   if (strSet === '') {
     alert("You must configure settings first.");
+    return;
   } else {
     pass = '';
     for (var i = 0; i < passLength; i++) {

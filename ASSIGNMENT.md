@@ -28,7 +28,7 @@ This homework is graded based on the following criteria:
 
 - [X] Application deployed at live URL.
 - [X] Application loads with no errors.
-- [ ] Application GitHub URL submitted.
+- [X] Application GitHub URL submitted.
 - [X] GitHub repository that contains application code.
 
 ### Application Quality: 15%
