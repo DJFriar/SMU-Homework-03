@@ -22,6 +22,8 @@ function writePassword() {
 
 // Setup password parameters
 function configurePassword() {
+  // Reset the settings
+  strSet = '';
   // Ask for the settings
   passLength = promptForPassLength();
   incLower = confirm("Would you like to include lowercase letters?");
@@ -29,23 +31,33 @@ function configurePassword() {
   incNum = confirm("Would you like to include numbers?");
   incSpecial = confirm("Would you like to include special characters?");
   // Setup the strSet to be used by the password generator
-  if (incLower) { strSet += alphaSet; }
-  if (incUpper) { var alphaSetUpper = alphaSet.toUpperCase(); strSet += alphaSetUpper; }
-  if (incNum) { strSet += numericSet; }
-  if (incSpecial) { strSet += specialSet; }
-  // Provide confirmation to the user
-  alert("You chose a password " + passLength + " characters long.\nInclude Lowercase Letters: " + incLower + "\nInclude Uppercase Letters: " + incUpper + "\nInclude Numbers: " + incNum + "\nInclude Special Characters: " + incSpecial + "\nCharacter set will be :" + strSet);
+  if (!incLower && !incUpper && !incNum && !incSpecial) {
+    alert("You must choose at least one character set. Please try again.")
+  } else {
+    if (incLower) { strSet += alphaSet; }
+    if (incUpper) { var alphaSetUpper = alphaSet.toUpperCase(); strSet += alphaSetUpper; }
+    if (incNum) { strSet += numericSet; }
+    if (incSpecial) { strSet += specialSet; }
+    // Provide confirmation to the user
+    alert("You chose a password " + passLength + " characters long.\nInclude Lowercase Letters: " + incLower + "\nInclude Uppercase Letters: " + incUpper + "\nInclude Numbers: " + incNum + "\nInclude Special Characters: " + incSpecial);  
+  }
 }
 
 function promptForPassLength() {
   while(true) {
-    passLength = prompt("How many characters do you want your password to be?");
-    if (passLength || isNaN( passLength) || passLength === 'undefined') {
+    passLength = prompt("How many characters do you want your password to be?\nYou must choose a number between 8 and 128.");
+    if (passLength && isNaN(passLength)) {
       alert("Invalid input.");
     } else if (passLength) {
-      return parseInt(passLength);
-    } else {
+      if (parseInt(passLength)>=8 && parseInt(passLength)<=128) {
+        return parseInt(passLength);
+      } else {
+        alert("You must choose a value between 8 and 128 inclusive.")
+      }
+    } else if (isNull(passLength)) {
       return;
+    } else {
+      alert("Invalid input.");
     }
   }
 }
@@ -67,5 +79,3 @@ function generatePassword() {
 // Add event listener to generate button
 document.getElementById("generate").addEventListener("click", writePassword);
 document.getElementById("settings").addEventListener("click", configurePassword);
-
-

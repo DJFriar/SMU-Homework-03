@@ -11,13 +11,15 @@
   <body>
     <div class="wrapper">
       <header>
-        <h1>Password Generator</h1>
+        <h1>Tommy's Random Password Generator</h1>
       </header>
       <div class="card">
         <div class="card-header">
           <h2>Generate a Password</h2>
         </div>
         <div class="card-body">
+          <p>1) Use Settings to set your password requirements.<br>
+            2) Use Generate to create random passwords. </p>
           <textarea
             readonly
             id="password"
@@ -26,52 +28,13 @@
           ></textarea>
         </div>
         <div class="card-footer">
-          <!-- <button id="settings" class="btn">Settings</button> -->
-          <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal">
-            Settings
-          </button>
+          <button id="settings" class="btn">Password Settings</button>
           <button id="generate" class="btn">Generate Password</button>
         </div>
-
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Settings</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <p>How long would you like your password? <span id="demo"></span> Chars</p>
-                <div class="slidecontainer">
-                  <input type="range" min="8" max="128" value="16" class="slider" id="myRange">
-                </div>
-                <p>What do you want your password to contain?</p>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
       </div>
     </div>
     <script src="script.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-    <script>
-      var slider = document.getElementById("myRange");
-      var output = document.getElementById("demo");
-      output.innerHTML = slider.value; // Display the default slider value
-
-      // Update the current slider value (each time you drag the slider handle)
-      slider.oninput = function() {
-        output.innerHTML = this.value;
-      }
-    </script>
   </body>
 </html>

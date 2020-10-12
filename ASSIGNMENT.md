@@ -6,13 +6,13 @@ Password Generator
 
 GIVEN I need a new, secure password
 
-- [ ] WHEN I click the button to generate a password, THEN I am presented with a series of prompts for password criteria
-- [ ] WHEN prompted for password criteria, THEN I select which criteria to include in the password
-- [ ] WHEN prompted for the length of the password, THEN I choose a length of at least 8 characters and no more than 128 characters
-- [ ] WHEN prompted for character types to include in the password, THEN I choose lowercase, uppercase, numeric, and/or special characters
-- [ ] WHEN I answer each prompt, THEN my input should be validated and at least one character type should be selected
-- [ ] WHEN all prompts are answered, THEN a password is generated that matches the selected criteria
-- [ ] WHEN the password is generated, THEN the password is either displayed in an alert or written to the page
+- [X] WHEN I click the button to generate a password, THEN I am presented with a series of prompts for password criteria
+- [X] WHEN prompted for password criteria, THEN I select which criteria to include in the password
+- [X] WHEN prompted for the length of the password, THEN I choose a length of at least 8 characters and no more than 128 characters
+- [X] WHEN prompted for character types to include in the password, THEN I choose lowercase, uppercase, numeric, and/or special characters
+- [X] WHEN I answer each prompt, THEN my input should be validated and at least one character type should be selected
+- [X] WHEN all prompts are answered, THEN a password is generated that matches the selected criteria
+- [X] WHEN the password is generated, THEN the password is either displayed in an alert or written to the page
 
 ## Grading Requirements
 
@@ -22,25 +22,25 @@ This homework is graded based on the following criteria:
 
 - Satisfies all of the above acceptance criteria plus the following code improvements:
 
-  - [ ] The homework should not produce any errors in the console when you inspect it using Chrome DevTools.
+  - [X] The homework should not produce any errors in the console when you inspect it using Chrome DevTools.
 
 ### Deployment: 32%
 
-- [ ] Application deployed at live URL.
-- [ ] Application loads with no errors.
+- [X] Application deployed at live URL.
+- [X] Application loads with no errors.
 - [ ] Application GitHub URL submitted.
-- [ ] GitHub repository that contains application code.
+- [X] GitHub repository that contains application code.
 
 ### Application Quality: 15%
 
-- [ ] Application user interface style is clean and polished.
-- [ ] Application user experience is intuitive and easy to navigate.
-- [ ] Application resembles the mock-up functionality provided in the homework instructions.
+- [X] Application user interface style is clean and polished.
+- [X] Application user experience is intuitive and easy to navigate.
+- [X] Application resembles the mock-up functionality provided in the homework instructions.
 
 ### Repository Quality: 13%
 
-- [ ] Repository has a unique name.
-- [ ] Repository follows best practices for file structure and naming conventions.
-- [ ] Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-- [ ] Repository contains multiple descriptive commit messages.
-- [ ] Repository contains quality README file with description, screenshot, and link to deployed application.
+- [X] Repository has a unique name.
+- [X] Repository follows best practices for file structure and naming conventions.
+- [X] Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
+- [X] Repository contains multiple descriptive commit messages.
+- [X] Repository contains quality README file with description, screenshot, and link to deployed application.
